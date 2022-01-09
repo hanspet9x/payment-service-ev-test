@@ -46,6 +46,16 @@ app.get('/data', (req, res) => {
     });
 })
 
+app.delete('/data', (req, res) => {
+    fs.unlink('file.txt', (err) => {
+        if (err) {
+            res.send(err.message);
+            return;
+        }
+        res.send('deleted');
+    });
+})
+
 app.listen(port, () => {
     console.log('listening');
 });
