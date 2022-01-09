@@ -5,10 +5,13 @@
   "author": "hanspet9x <deji.akinlolu@shara.co>",
   "license": "MIT",
   "scripts": {
-    "dev": "node index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "@aws-sdk/client-sns": "^3.46.0",
     "express": "^4.17.2"
+  },
+  "engines": {
+    "node": "16.13.1"
   }
 }
