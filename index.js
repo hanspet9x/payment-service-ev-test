@@ -18,6 +18,16 @@ app.post('/form', (req, res) => {
     res.status(200).send(data);
 })
 
+app.get('data', (req, res) => {
+    fs.readFile('file.txt', (err, data) => {
+        if(err) {
+            res.send(err.message);
+            return;
+        }
+        res.send(data);
+    });
+})
+
 app.listen(port, () => {
     console.log('listening');
 });
