@@ -13,17 +13,27 @@ app.get('/', (req, res) => {
 app.post('/form', (req, res) => {
     const body = req.body;
     if (body) {
-        let data = typeof body === 'string' ? body : JSON.parse(body);
+        let data;
+        if (typeof body === 'string') {
+            data = body;
+        } else {
+            data = JSON.stringify(body);
+        }
+
         fs.appendFile('file.txt', data + "\n\n", (err) => {
-            if(err) {
+            if (err) {
                 res.status(200).send(err.message);
                 return;
             }
             res.status(200).send(data);
+            return;
         });
+    } else {
+
+        res.send('no valid data');
     }
 
-    res.send('no valid data');
+
 })
 
 app.get('data', (req, res) => {
