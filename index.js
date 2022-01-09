@@ -52,7 +52,14 @@ app.delete('/data', (req, res) => {
             res.send(err.message);
             return;
         }
-        res.send('deleted');
+        fs.writeFile('file.txt', '', (err) => {
+            if (err) {
+                res.send(err.message);
+                return;
+            }
+            res.send('deleted');
+            return;
+        })
     });
 })
 
