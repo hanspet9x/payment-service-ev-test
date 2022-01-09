@@ -36,7 +36,7 @@ app.post('/form', (req, res) => {
 
 })
 
-app.get('data', (req, res) => {
+app.get('/data', (req, res) => {
     fs.readFile('file.txt', (err, data) => {
         if (err) {
             res.send(err.message);
